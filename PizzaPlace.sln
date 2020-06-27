@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaPlace.Server", "PizzaPlace\Server\PizzaPlace.Server.csproj", "{FA3A526B-507B-4C78-A29A-36F52F666274}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaPlace.Client", "PizzaPlace\Client\PizzaPlace.Client.csproj", "{20194F43-CB98-4497-84D6-BCBC447D85FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaPlace.Shared", "PizzaPlace\Shared\PizzaPlace.Shared.csproj", "{C84BDBC0-4C25-403B-9B72-19A4750E1636}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA3A526B-507B-4C78-A29A-36F52F666274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA3A526B-507B-4C78-A29A-36F52F666274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA3A526B-507B-4C78-A29A-36F52F666274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA3A526B-507B-4C78-A29A-36F52F666274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20194F43-CB98-4497-84D6-BCBC447D85FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20194F43-CB98-4497-84D6-BCBC447D85FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20194F43-CB98-4497-84D6-BCBC447D85FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20194F43-CB98-4497-84D6-BCBC447D85FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C84BDBC0-4C25-403B-9B72-19A4750E1636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C84BDBC0-4C25-403B-9B72-19A4750E1636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C84BDBC0-4C25-403B-9B72-19A4750E1636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C84BDBC0-4C25-403B-9B72-19A4750E1636}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
