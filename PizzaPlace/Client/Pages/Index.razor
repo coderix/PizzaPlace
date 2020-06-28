@@ -2,25 +2,26 @@
 
 <h1>Our selection of pizzas</h1>
 
+<!-- Start menu -->
 @foreach (var pizza in state.Menu.Pizzas)
 {
-<div class="row">
-    <div class="col">
-        @pizza.Name
+    <div class="row">
+        <div class="col">
+            @pizza.Name
+        </div>
+        <div class="col">
+            @pizza.Price
+        </div>
+        <div class="col">
+            <img src="@SpicinessImage(pizza.Spiciness)" alt="@pizza.Spiciness" />
+        </div>
+        <div class="col">
+            <button class="btn btn-success" @onclick="@(() => AddToBasket(pizza))">
+                Add
+            </button>
+        </div>
     </div>
-    <div class="col">
-        @pizza.Price
-    </div>
-    <div class="col">
-        <img src="@SpicinessImage(pizza.Spiciness)" alt="@pizza.Spiciness" />
-    </div>
-    <div class="col">
-       <button class="btn btn-success" @onclick="@(() => AddToBasket(pizza))">
-           Add
-       </button>
-    </div>
-</div>
-       
+
 }
 <!-- End menu -->
 
@@ -30,7 +31,7 @@
         Menu = new Menu()
         {
             Pizzas = new List<Pizza>
-            {
+        {
                 new Pizza(1,"Pepperoni",8.99M,Spiciness.Spicy),
                 new Pizza(2,"Margerita",7.99M,Spiciness.None),
                 new Pizza(3,"Diabolo",9.99M,Spiciness.Hot)
@@ -43,7 +44,9 @@
 
     private void AddToBasket(Pizza pizza)
     {
+        state.Basket.Add(pizza.Id);
         Console.WriteLine($"Added pizza {pizza.Name}");
+
     }
 
 }

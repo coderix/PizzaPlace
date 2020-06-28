@@ -9,5 +9,10 @@ namespace PizzaPlace.Shared
         public Basket()
         {
         }
+
+        public void Add(int pizzaId)
+        {
+            Orders.Add(pizzaId);
+        }
     }
 }
