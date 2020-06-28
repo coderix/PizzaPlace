@@ -3,7 +3,7 @@
 <h1>Our selection of pizzas</h1>
 
 <!-- Start menu -->
-@foreach (var pizza in state.Menu.Pizzas)
+@foreach (var pizza in State.Menu.Pizzas)
 {
     <div class="row">
         <div class="col">
@@ -25,11 +25,11 @@
 }
 <!-- End menu -->
 <!-- Shopping Basket-->
-@if (state.Basket.Orders.Any())
+@if (State.Basket.Orders.Any())
 {
     <h1>Your current Order</h1>
-    @foreach (var (pizza, pos) in state.Basket.Orders.Select(
-       (id, pos) => (state.Menu.GetPizza(id), pos)))
+    @foreach (var (pizza, pos) in State.Basket.Orders.Select(
+       (id, pos) => (State.Menu.GetPizza(id), pos)))
     {
         <div class="row">
             <div class="col">
@@ -48,7 +48,7 @@
 
 <div class="row">
     <div class="col"> Total:</div>
-    <div class="col"> @state.TotalPrice </div>
+    <div class="col"> @State.TotalPrice </div>
 
 </div>
 
@@ -56,8 +56,27 @@
 }
 <!-- End Shopping Basket-->
 
+<!-- Customer Entry-->
+<h1>Please Enter your details below</h1>
+<fieldset>
+    <p>
+        <label for="name">Name:</label>
+        <input id="name" @bind="State.Basket.Customer.Name" />
+    </p>
+    <p>
+        <label for="street">Street:</label>
+        <input id="street" @bind="State.Basket.Customer.Street" />
+    </p>
+    <p>
+        <label for="city">City:</label>
+        <input id="city" @bind="State.Basket.Customer.City" />
+    </p>
+
+    <button @onclick="PlaceOrder">Checkout</button>
+</fieldset>
+
 @code {
-    private State state { get; } = new State()
+    private State State { get; } = new State()
     {
         Menu = new Menu()
         {
@@ -75,7 +94,7 @@
 
     private void AddToBasket(Pizza pizza)
     {
-        state.Basket.Add(pizza.Id);
+        State.Basket.Add(pizza.Id);
         Console.WriteLine($"Added pizza {pizza.Name}");
 
     }
@@ -83,7 +102,12 @@
     private void RemoveFromBasket(int pos)
     {
         Console.WriteLine($"Removing pizza from pos {pos}");
-        state.Basket.RemoveAt(pos);
+        State.Basket.RemoveAt(pos);
+    }
+
+    private void PlaceOrder()
+    {
+        Console.WriteLine("Placing order");
     }
 
 }
