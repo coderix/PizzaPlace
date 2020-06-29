@@ -29,7 +29,7 @@
 {
     <h1>Your current Order</h1>
     @foreach (var (pizza, pos) in State.Basket.Orders.Select(
-       (id, pos) => (State.Menu.GetPizza(id), pos)))
+      (id, pos) => (State.Menu.GetPizza(id), pos)))
     {
         <div class="row">
             <div class="col">
@@ -46,16 +46,15 @@
         </div>
     }
 
-<div class="row">
-    <div class="col"> Total:</div>
-    <div class="col"> @State.TotalPrice </div>
+    <div class="row">
+        <div class="col"> Total:</div>
+        <div class="col"> @State.TotalPrice </div>
 
-</div>
+    </div>
 
-    
+
 }
 <!-- End Shopping Basket-->
-
 <!-- Customer Entry-->
 <h1>Please Enter your details below</h1>
 <fieldset>
@@ -74,6 +73,10 @@
 
     <button @onclick="PlaceOrder">Checkout</button>
 </fieldset>
+
+<!-- End Customer Entry-->
+
+<p>@State.ToJson()</p>
 
 @code {
     private State State { get; } = new State()
