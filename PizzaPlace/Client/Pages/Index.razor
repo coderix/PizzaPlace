@@ -57,6 +57,52 @@
 <!-- End Shopping Basket-->
 <!-- Customer Entry-->
 <h1>Please Enter your details below</h1>
+
+<EditForm OnValidSubmit="PlaceOrder" Model="@State.Basket.Customer">
+    <DataAnnotationsValidator />
+    <div class="" form-group row mb-1>
+        <label class="col-sm-3 col-form-label"
+               for="Name">
+            Name:
+        </label>
+        <div class="col-sm-9">
+            <InputText class="form-control"
+                       @bind-Value="@State.Basket.Customer.Name" />
+            <ValidationMessage For="@(() => State.Basket.Customer.Name)" />
+        </div>
+    </div>
+
+    <div class="" form-group row mb-1>
+        <label class="col-sm-3 col-form-label"
+               for="street">
+            Street:
+        </label>
+        <div class="col-sm-9">
+            <InputText class="form-control"
+                       @bind-Value="@State.Basket.Customer.Street" />
+            <ValidationMessage For="@(() => State.Basket.Customer.Street)" />
+        </div>
+    </div>
+
+    <div class="" form-group row mb-1>
+        <label class="col-sm-3 col-form-label"
+               for="city">
+            City:
+        </label>
+        <div class="col-sm-9">
+            <InputText class="form-control"
+                       @bind-Value="@State.Basket.Customer.City" />
+            <ValidationMessage For="@(() => State.Basket.Customer.City)" />
+        </div>
+    </div>
+
+    <div class="" form-group mb-0>
+        <button type="submit" id="BtnRegister" class="btn btn-primary">
+            Checkout
+        </button>
+    </div>
+
+</EditForm>
 <fieldset>
     <p>
         <label for="name">Name:</label>
