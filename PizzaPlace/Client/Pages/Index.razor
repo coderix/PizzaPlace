@@ -10,36 +10,14 @@
 
 
 <!-- End menu -->
+
 <!-- Shopping Basket-->
-@if (State.Basket.Orders.Any())
-{
-    <h1>Your current Order</h1>
-    @foreach (var (pizza, pos) in State.Basket.Orders.Select(
-      (id, pos) => (State.Menu.GetPizza(id), pos)))
-    {
-        <div class="row">
-            <div class="col">
-                @pizza.Name
-            </div>
-            <div class="col">
-                @pizza.Price
-            </div>
-            <div class="col">
-                <button class="btn btn-danger" @onclick="@(() => RemoveFromBasket(pos))">
-                    Remove       
-                </button>
-            </div>
-        </div>
-    }
 
-    <div class="row">
-        <div class="col"> Total:</div>
-        <div class="col"> @State.TotalPrice </div>
+<ShoppingBasket Title="Your Order"
+                Basket="@State.Basket"
+                GetPizzaFromId="@State.Menu.GetPizza"
+                Selected="@(async (pos) => RemoveFromBasket(pos))" />
 
-    </div>
-
-
-}
 <!-- End Shopping Basket-->
 <!-- Customer Entry-->
 <h1>Please Enter your details below</h1>
