@@ -1,0 +1,28 @@
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
+
+namespace PizzaPlace.Client.Pages
+{
+    public class InputWatcher : ComponentBase
+    {
+        private EditContext editContext;
+
+        [CascadingParameter]
+        public EditContext EditContext
+        {
+            get => this.editContext;
+            set
+            {
+                this.editContext = value;
+                //EditContext.OnFieldChanged += async (sender, e) =>
+                //{
+                //    await FieldChanged.InvokeAsync(e.FieldIdentifier.FieldName);
+                //};
+            }
+        }
+            
+        public InputWatcher()
+        {
+        }
+    }
+}
